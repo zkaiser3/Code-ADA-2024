@@ -432,18 +432,18 @@
 <script>
     // Function to handle rating button clicks
     function setRating(button) {
-        // Update hidden input value with the clicked button value
-        const hiddenInput = button.parentElement.nextElementSibling;
-        hiddenInput.value = button.textContent; // Get the button text (0-5)
-
-        // Remove 'selected' class from all buttons in the group
-        const buttons = button.parentElement.children;
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].style.backgroundColor = '#4CAF50'; // Reset color
-        }
-
-        // Highlight the selected button
+        // Get the parent statement div
+        const statementDiv = button.parentElement.parentElement;
+        // Find all sibling buttons and reset their background
+        const buttons = button.parentElement.querySelectorAll('button');
+        buttons.forEach(btn => btn.style.backgroundColor = '#a8ffab');
+        
+        // Highlight the clicked button
         button.style.backgroundColor = '#45a049';
+        
+        // Find the hidden input in the same statement and set its value
+        const hiddenInput = statementDiv.querySelector('input[type="hidden"]');
+        hiddenInput.value = button.innerText;
     }
 
     // Handle form submission
