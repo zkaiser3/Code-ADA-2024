@@ -1,0 +1,1 @@
+//turns the patient form inputs from html into json strings to send to app.py
