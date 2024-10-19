@@ -29,53 +29,48 @@
             margin-bottom: 30px;
         }
 
-        p {
-            font-size: 16px;
-            color: #555;
+        /* Statement styling */
+        .statement {
             margin-bottom: 20px;
         }
 
-        /* Form styling */
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
         label {
-            margin: 10px 0 5px;
             font-weight: bold;
             color: #333;
         }
 
-        input[type="text"], textarea, select {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 100px;
+        /* Button styling */
+        .button-group {
+            display: flex;
+            justify-content: space-between;
         }
 
         button {
-            padding: 15px;
-            font-size: 18px;
+            padding: 10px 15px;
+            font-size: 16px;
             background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            margin-top: 10px;
+            margin: 2px;
+            flex: 1;
+            min-width: 50px;
         }
 
         button:hover {
             background-color: #45a049;
+        }
+
+        /* Other preferences */
+        label.other {
+            margin-top: 30px;
+        }
+
+        button.submit {
+            margin-top: 20px;
+            width: 100%;
         }
     </style>
 </head>
@@ -87,44 +82,376 @@
 
     <!-- Health Assessment Form -->
     <form id="healthAssessmentForm">
-        <!-- Placeholder questions -->
-        <label for="mentalHealth">How would you describe your mental health?</label>
-        <textarea id="mentalHealth" name="mentalHealth" placeholder="Describe your mental health..." required></textarea>
+        <div class="statement">
+            <label>Experienced a lack of energy or fatigue:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'fatigue')">0</button>
+                <button type="button" onclick="setRating(this, 'fatigue')">1</button>
+                <button type="button" onclick="setRating(this, 'fatigue')">2</button>
+                <button type="button" onclick="setRating(this, 'fatigue')">3</button>
+                <button type="button" onclick="setRating(this, 'fatigue')">4</button>
+                <button type="button" onclick="setRating(this, 'fatigue')">5</button>
+            </div>
+            <input type="hidden" name="fatigue" value="0">
+        </div>
 
-        <label for="physicalHealth">How would you describe your physical health?</label>
-        <textarea id="physicalHealth" name="physicalHealth" placeholder="Describe your physical health..." required></textarea>
+        <div class="statement">
+            <label>Experienced a sense of being overwhelmed or difficulty with schoolwork:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'overwhelmed')">0</button>
+                <button type="button" onclick="setRating(this, 'overwhelmed')">1</button>
+                <button type="button" onclick="setRating(this, 'overwhelmed')">2</button>
+                <button type="button" onclick="setRating(this, 'overwhelmed')">3</button>
+                <button type="button" onclick="setRating(this, 'overwhelmed')">4</button>
+                <button type="button" onclick="setRating(this, 'overwhelmed')">5</button>
+            </div>
+            <input type="hidden" name="overwhelmed" value="0">
+        </div>
 
-        <label for="symptoms">What symptoms are you currently experiencing?</label>
-        <textarea id="symptoms" name="symptoms" placeholder="Describe your symptoms..." required></textarea>
+        <div class="statement">
+            <label>Experienced a change in eating pattern, such as increased or decreased appetite:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'eatingChange')">0</button>
+                <button type="button" onclick="setRating(this, 'eatingChange')">1</button>
+                <button type="button" onclick="setRating(this, 'eatingChange')">2</button>
+                <button type="button" onclick="setRating(this, 'eatingChange')">3</button>
+                <button type="button" onclick="setRating(this, 'eatingChange')">4</button>
+                <button type="button" onclick="setRating(this, 'eatingChange')">5</button>
+            </div>
+            <input type="hidden" name="eatingChange" value="0">
+        </div>
 
-        <label for="concerns">Any other health concerns?</label>
-        <textarea id="concerns" name="concerns" placeholder="Describe any additional concerns..."></textarea>
+        <div class="statement">
+            <label>Experienced a change in sleeping pattern, such as sleeping significantly more or experiencing insomnia:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'sleepChange')">0</button>
+                <button type="button" onclick="setRating(this, 'sleepChange')">1</button>
+                <button type="button" onclick="setRating(this, 'sleepChange')">2</button>
+                <button type="button" onclick="setRating(this, 'sleepChange')">3</button>
+                <button type="button" onclick="setRating(this, 'sleepChange')">4</button>
+                <button type="button" onclick="setRating(this, 'sleepChange')">5</button>
+            </div>
+            <input type="hidden" name="sleepChange" value="0">
+        </div>
 
-        <!-- Additional information -->
-        <label for="age">Your Age</label>
-        <input type="text" id="age" name="age" placeholder="Enter your age" required>
+        <div class="statement">
+            <label>Experienced thoughts of suicide or self-harm:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
 
-        <label for="gender">Your Gender</label>
-        <select id="gender" name="gender" required>
-            <option value="" disabled selected>Select your gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="non-binary">Non-binary</option>
-            <option value="other">Other</option>
-            <option value="prefer-not-to-say">Prefer not to say</option>
-        </select>
+        <div class="statement">
+            <label>Experienced feelings of nervousnes or restlessness:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
 
-        <button type="submit">Submit Assessment</button>
+        <div class="statement">
+            <label>Experienced difficulty controlling feelings of worry:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced feelings of weakness in social situations:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced unusual amount of trembling, sweating, or rapid breathing:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced a sense of impending doom or danger:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced forgetfulness:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced difficulty in organization:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced poor performance at work or school:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced difficulty in concentration and easy distractibility:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced impulsive or mildly risky behavior:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced implementing a strict limit on food intake:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced urges to eat large quantities of food, especially in secret:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced a fixation on body image, clothes, or weight:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced nervousness regarding social events because of potentially unhealthy food being served:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+        
+        <div class="statement">
+            <label>Experienced changes in mood or irritability:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced unwanted memories of a traumatic events as if they were happening again:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced upsetting dreams or nightmares:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced feelings of being easily frightened and constantly being on guard:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced aggressive or angry outbursts:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+
+        <div class="statement">
+            <label>Experienced avoidance toward places, activities, or people that remind you of a certain event:</label>
+            <div class="button-group">
+                <button type="button" onclick="setRating(this, 'selfHarm')">0</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">1</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">2</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">3</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">4</button>
+                <button type="button" onclick="setRating(this, 'selfHarm')">5</button>
+            </div>
+            <input type="hidden" name="selfHarm" value="0">
+        </div>
+        
+        <h2>Other Preferences</h2>
+        <div class="statement other">
+            <label>LGBTQ+ specialty:</label>
+            <select required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+        <div class="statement other">
+            <label>Substance abuse or alcoholism specialty:</label>
+            <select required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <button type="submit" class="submit">Submit Assessment</button>
     </form>
 </div>
 
 <script>
+    // Function to handle rating button clicks
+    function setRating(button, name) {
+        // Update hidden input value with the clicked button value
+        const hiddenInput = button.parentElement.nextElementSibling;
+        hiddenInput.value = button.textContent; // Get the button text (0-5)
+
+        // Remove 'selected' class from all buttons in the group
+        const buttons = button.parentElement.children;
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].style.backgroundColor = '#4CAF50'; // Reset color
+        }
+
+        // Highlight the selected button
+        button.style.backgroundColor = '#45a049';
+    }
+
     // Handle form submission
     document.getElementById('healthAssessmentForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form from reloading the page
 
         // Simulate saving form data (you can handle form data storage here)
-        
+
         // Redirect to doctor_matches.html after submission
         window.location.href = "doctor_matches.html"; // Replace with your actual matching page
     });
