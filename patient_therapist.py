@@ -105,7 +105,7 @@ def Match_reason(patient, therapist):
         #If the index is 5 or 6 (LGBTQ+ or substance abuse specialty), add 5 points if the doctor specializes
         # in it and the patient requested.
         if i == 5 or i == 6:
-            if patient.reason[i] == 1 and doctor.specialty[i] == 1:
+            if patient.reason[i] == 1 and therapist.specialty[i] == 1:
                 points += 5
             continue
 
