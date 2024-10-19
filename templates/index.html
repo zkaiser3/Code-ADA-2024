@@ -194,11 +194,11 @@
     };
 
     function goToDoctor() {
-        window.location.href = "doctor.html"; 
+        window.location.href = "{{ url_for('doctor') }}"; //loads flask app.route to doctor html page
     }
 
     function goToPatient() {
-        window.location.href = "patient.html"; 
+        window.location.href = "{{ url_for('patient') }}"; 
     }
 </script>
 
