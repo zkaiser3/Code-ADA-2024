@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        /* Main container for content */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"], textarea, select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Mental and Physical Health Assessment</h1>
+    <p>Please fill out the following health assessment to help us match you with the best doctor for your needs.</p>
+
+    <!-- Health Assessment Form -->
+    <form id="healthAssessmentForm">
+        <!-- Placeholder questions -->
+        <label for="mentalHealth">How would you describe your mental health?</label>
+        <textarea id="mentalHealth" name="mentalHealth" placeholder="Describe your mental health..." required></textarea>
+
+        <label for="physicalHealth">How would you describe your physical health?</label>
+        <textarea id="physicalHealth" name="physicalHealth" placeholder="Describe your physical health..." required></textarea>
+
+        <label for="symptoms">What symptoms are you currently experiencing?</label>
+        <textarea id="symptoms" name="symptoms" placeholder="Describe your symptoms..." required></textarea>
+
+        <label for="concerns">Any other health concerns?</label>
+        <textarea id="concerns" name="concerns" placeholder="Describe any additional concerns..."></textarea>
+
+        <!-- Additional information -->
+        <label for="age">Your Age</label>
+        <input type="text" id="age" name="age" placeholder="Enter your age" required>
+
+        <label for="gender">Your Gender</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="non-binary">Non-binary</option>
+            <option value="other">Other</option>
+            <option value="prefer-not-to-say">Prefer not to say</option>
+        </select>
+
+        <button type="submit">Submit Assessment</button>
+    </form>
+</div>
+
+<script>
+    // Handle form submission
+    document.getElementById('healthAssessmentForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from reloading the page
+
+        // Simulate saving form data (you can handle form data storage here)
+        
+        // Redirect to doctor_matches.html after submission
+        window.location.href = "doctor_matches.html"; // Replace with your actual matching page
+    });
+</script>
+
+</body>
+</html>

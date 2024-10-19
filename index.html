@@ -5,15 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor or Patient</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body, html {
             margin: 0;
             padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent scrolling during animation */
             background-color: #f0f8ff; /* Light background */
-            overflow-x: hidden;
         }
 
-        /* Banner style */
+        /* Initial overlay for full-screen intro */
+        .intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #477cab; /* Dark background for intro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100; /* Ensure it stays on top */
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+
+        .intro-overlay h1 {
+            color: white;
+            font-size: 64px;
+            text-align: center;
+            transform: translateY(-200px);
+            opacity: 0;
+            transition: transform 1s ease-out, opacity 1s ease-out;
+        }
+
+        /* Banner for actual page content */
         .banner {
             background-image: url('banner-background.jpg'); /* Replace with actual stock photo */
             background-size: cover;
@@ -21,19 +48,37 @@
             color: white;
             padding: 100px 20px;
             text-align: center;
-            height: 300px;
-            position: relative;
-            overflow: hidden;
+            height: 8%;
         }
 
         .banner h1 {
             font-size: 48px;
             margin: 0;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Text shadow for better visibility */
+            opacity: 0;
+            transition: opacity 1.5s ease; /* Smooth transition */
+        }
+
+        /* Moving images container */
+        .moving-images {
             position: relative;
-            top: -200px; /* Start out of frame */
-            opacity: 0;  /* Start hidden */
-            transition: top 1.5s ease, opacity 1.5s ease; /* Smooth transition */
+            overflow: hidden;
+            height: 100px; /* Adjust height as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0; /* Space between sections */
+        }
+
+        .moving-images img {
+            height: 100px; /* Adjust image size */
+            animation: move 30s linear infinite; /* Move animation */
+            margin: 0 10px; /* Space between images */
+        }
+
+        @keyframes move {
+            0% { transform: translateX(100%); } /* Start off the right */
+            100% { transform: translateX(-100%); } /* End off the left */
         }
 
         /* Main content container */
@@ -41,6 +86,9 @@
             max-width: 500px;
             margin: 50px auto;
             text-align: center;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+            padding-bottom: 10px; /* Added padding to prevent overlap with footer */
         }
 
         h2 {
@@ -55,7 +103,7 @@
             font-size: 18px;
             margin: 10px;
             cursor: pointer;
-            background-color: #4CAF50;
+            background-color: #477cab;
             color: white;
             border: none;
             border-radius: 5px;
@@ -63,7 +111,7 @@
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #3d6294; /* Darker shade on hover */
         }
 
         /* Footer or extra content (optional) */
@@ -75,17 +123,38 @@
             position: fixed;
             width: 100%;
             bottom: 0;
+            opacity: 0;
+            transition: opacity 1.5s ease;
         }
     </style>
 </head>
 <body>
 
-<!-- Banner section with animated text -->
+<!-- Full-screen intro overlay -->
+<div class="intro-overlay" id="introOverlay">
+    <h1 id="introText">Big10Health</h1>
+</div>
+
+<!-- Actual content for the page -->
 <div class="banner">
     <h1 id="welcomeText">Welcome to Big10Health!</h1>
 </div>
 
-<!-- Main content -->
+<!-- Container for moving images -->
+<div class="moving-images" id="movingImagesContainer">
+    <!-- Add your images here -->
+    <img src="CodeAdaImages/CodeAdaStockPhoto1.jpeg" alt="Image 1">
+    <img src="CodeAdaImages/CodeAdaStockPhoto2.webp" alt="Image 2">
+    <img src="CodeAdaImages/CodeAdaStockPhoto3.webp" alt="Image 3">
+    <img src="CodeAdaImages/CodeAdaStockPhoto4.jpeg" alt="Image 4">
+    <img src="CodeAdaImages/CodeAdaStockPhoto5.jpeg" alt="Image 5">
+    <img src="CodeAdaImages/CodeAdaStockPhoto6.jpeg" alt="Image 6">
+    <img src="CodeAdaImages/CodeAdaStockPhoto7.avif" alt="Image 7">
+    <img src="CodeAdaImages/CodeAdaStockPhoto8.jpeg" alt="Image 8">
+    <img src="CodeAdaImages/CodeAdaStockPhoto9.jpeg" alt="Image 9">
+    <img src="CodeAdaImages/CodeAdaStockPhoto10.jpeg" alt="Image 10">
+</div>
+
 <div class="container">
     <h2>Are you a Doctor or a Patient?</h2>
     <button onclick="goToDoctor()">Doctor</button>
@@ -93,19 +162,35 @@
 </div>
 
 <!-- Optional footer -->
-<footer>
-    2024 Code Ada Web Development Project by Noemia Mahmud & Zoe Kaiser
+<footer id="footerContent">
+    2024 Code Ada Web Development Project by Noemia Mahmud, Zoe Kaiser, & Anna Wilkowski
 </footer>
 
 <script>
-    // Function to animate the text on page load
+    // Function to animate the intro header and fade into the actual page
     window.onload = function() {
+        const introOverlay = document.getElementById('introOverlay');
+        const introText = document.getElementById('introText');
         const welcomeText = document.getElementById('welcomeText');
-        // Delay to simulate a more advertisement-like effect
+        const container = document.querySelector('.container');
+        const footer = document.getElementById('footerContent');
+
+        // Animate the intro text sliding down
         setTimeout(function() {
-            welcomeText.style.top = '0';  // Move text into frame
-            welcomeText.style.opacity = '1';  // Make text visible
-        }, 500); // 500ms delay for effect
+            introText.style.transform = 'translateY(0)';  // Slide into frame
+            introText.style.opacity = '1';  // Make visible
+        }, 300); // 300ms delay for the text animation to start
+
+        // Fade out the intro overlay and show the actual content
+        setTimeout(function() {
+            introOverlay.style.opacity = '0';  // Fade out the intro overlay
+            setTimeout(function() {
+                introOverlay.style.display = 'none';  // Remove it from view after fade out
+                welcomeText.style.opacity = '1';  // Fade in the banner text
+                container.style.opacity = '1';    // Fade in the buttons
+                footer.style.opacity = '1';       // Fade in the footer
+            }, 1000); // Wait for the fade out transition to finish
+        }, 2000); // Keep the intro for 2 seconds
     };
 
     function goToDoctor() {
