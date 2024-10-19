@@ -5,5 +5,6 @@ specialties. In order to take this into account, we
 
 Depression section:
 
-
+Dependencies:
+pip install numpy
 
