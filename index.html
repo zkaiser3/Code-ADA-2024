@@ -1,1 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor or Patient</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Light background */
+            overflow-x: hidden;
+        }
 
+        /* Banner style */
+        .banner {
+            background-image: url('banner-background.jpg'); /* Replace with actual stock photo */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner h1 {
+            font-size: 48px;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Text shadow for better visibility */
+            position: relative;
+            top: -200px; /* Start out of frame */
+            opacity: 0;  /* Start hidden */
+            transition: top 1.5s ease, opacity 1.5s ease; /* Smooth transition */
+        }
+
+        /* Main content container */
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* Button styles */
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer or extra content (optional) */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Banner section with animated text -->
+<div class="banner">
+    <h1 id="welcomeText">Welcome to Big10Health!</h1>
+</div>
+
+<!-- Main content -->
+<div class="container">
+    <h2>Are you a Doctor or a Patient?</h2>
+    <button onclick="goToDoctor()">Doctor</button>
+    <button onclick="goToPatient()">Patient</button>
+</div>
+
+<!-- Optional footer -->
+<footer>
+    2024 Code Ada Web Development Project by Noemia Mahmud & Zoe Kaiser
+</footer>
+
+<script>
+    // Function to animate the text on page load
+    window.onload = function() {
+        const welcomeText = document.getElementById('welcomeText');
+        // Delay to simulate a more advertisement-like effect
+        setTimeout(function() {
+            welcomeText.style.top = '0';  // Move text into frame
+            welcomeText.style.opacity = '1';  // Make text visible
+        }, 500); // 500ms delay for effect
+    };
+
+    function goToDoctor() {
+        window.location.href = "doctor.html"; 
+    }
+
+    function goToPatient() {
+        window.location.href = "patient.html"; 
+    }
+</script>
+
+</body>
+</html>

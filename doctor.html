@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        /* Container for the main content */
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .form-section, .patient-requests-section {
+            margin-top: 40px;
+        }
+
+        .form-section h2, .patient-requests-section h2 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .form-buttons {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .patient-requests {
+            margin-top: 30px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .patient-request {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .patient-request:last-child {
+            border-bottom: none;
+        }
+
+        .empty-message {
+            text-align: center;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Doctor Dashboard</h1>
+
+    <!-- Form Section -->
+    <div class="form-section">
+        <h2>Manage Your Forms</h2>
+        <div class="form-buttons">
+            <button onclick="fillNewForm()">Fill Out a New Form</button>
+            <button onclick="editForm()">Edit Existing Form</button>
+        </div>
+    </div>
+
+    <!-- Incoming Patient Requests Section -->
+    <div class="patient-requests-section">
+        <h2>Incoming Patient Requests</h2>
+        <div class="patient-requests" id="patientRequests">
+            <!-- Dynamically loaded patient requests will go here -->
+            <div class="empty-message">No incoming patient requests at the moment.</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function fillNewForm() {
+        alert("Redirecting to form creation page...");
+        // You can replace this with the actual redirection to a form page.
+        window.location.href = "new_form.html"; // Ensure the new_form.html exists or replace with your desired link
+    }
+
+    function editForm() {
+        alert("Redirecting to form edit page...");
+        // You can replace this with the actual redirection to the form editing page.
+        window.location.href = "edit_form.html"; // Ensure the edit_form.html exists or replace with your desired link
+    }
+
+    // Example: Dynamically load incoming patient requests (for now, just simulate with JavaScript)
+    const patientRequests = [
+       
+    ];
+
+    function loadPatientRequests() {
+        const requestContainer = document.getElementById('patientRequests');
+        requestContainer.innerHTML = ''; // Clear the current content
+
+        if (patientRequests.length > 0) {
+            patientRequests.forEach((request) => {
+                const requestDiv = document.createElement('div');
+                requestDiv.className = 'patient-request';
+                requestDiv.innerHTML = `<strong>${request.name}</strong>: ${request.request}`;
+                requestContainer.appendChild(requestDiv);
+            });
+        } else {
+            requestContainer.innerHTML = '<div class="empty-message">No incoming patient requests at the moment.</div>';
+        }
+    }
+
+    // Load patient requests on page load
+    window.onload = function() {
+        loadPatientRequests();
+    };
+</script>
+
+</body>
+</html>
