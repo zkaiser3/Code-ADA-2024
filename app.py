@@ -18,3 +18,7 @@ def doctor():
 @app.route('/patient')
 def patient(): 
     return render_template('patient.html') #loads the signup.html website
+
+@app.route('/doctor_matches')
+def doctor_matches(): 
+    return render_template('doctor_matches.html') #loads the signup.html website
