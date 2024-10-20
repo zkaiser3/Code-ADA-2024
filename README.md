@@ -4,8 +4,6 @@ This is our project for the Women in Computer Science's Code Ada Code to Cure 20
 
 The most common mental health struggles in college students are depression, anxiety, ADHD, disordered eating, and PTSD. We use the sources below to estimate the student's needs based on symptoms they have experienced.
 
-Depression section:
-
 Installs virtual environment for python
 ```bash
 sudo apt install python3.10-venv

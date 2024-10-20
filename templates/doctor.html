@@ -6,36 +6,42 @@
     <title>Doctor Dashboard</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
-            background-color: #f5f7fa;
+            background-color: #f5bec7;
             color: #333;
         }
 
         /* Container for the main content */
         .container {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            background-color: #EDF7F6;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
         }
 
         h1 {
             text-align: center;
-            color: #2c3e50;
+            color: #51E2F5;
+            font-size: 36px;
+            margin-bottom: 30px;
         }
 
         .form-section, .patient-requests-section {
             margin-top: 40px;
+            padding: 20px;
+            background-color: #9DF9EF;
+            border-radius: 10px;
         }
 
         .form-section h2, .patient-requests-section h2 {
-            font-size: 24px;
-            color: #2c3e50;
+            font-size: 28px;
+            color: #A28089;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .form-buttons {
@@ -45,33 +51,35 @@
 
         button {
             padding: 15px 30px;
-            font-size: 16px;
+            font-size: 18px;
             margin: 10px;
             cursor: pointer;
-            background-color: #4CAF50;
+            background-color: #FFA8B6;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
             transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #F08A9A;
         }
 
         .patient-requests {
             margin-top: 30px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
+            background-color: #EDF7F6;
+            border: 1px solid #9DF9EF;
+            border-radius: 10px;
+            padding: 20px;
             max-height: 400px;
             overflow-y: auto;
         }
 
         .patient-request {
             padding: 15px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #9DF9EF;
+            font-size: 18px;
+            color: #333;
         }
 
         .patient-request:last-child {
@@ -80,7 +88,15 @@
 
         .empty-message {
             text-align: center;
+            font-size: 18px;
             color: #777;
+        }
+
+        /* Add some breathing room to the page */
+        .container p {
+            text-align: center;
+            color: #777;
+            margin: 0;
         }
     </style>
 </head>
@@ -88,6 +104,7 @@
 
 <div class="container">
     <h1>Doctor Dashboard</h1>
+    <p>Welcome to your personal dashboard. Manage forms and review patient requests easily.</p>
 
     <!-- Form Section -->
     <div class="form-section">
