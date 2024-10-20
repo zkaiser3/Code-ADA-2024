@@ -483,8 +483,6 @@
             </div>
         </div>
 
-        <button type="submit" class="submit">Submit Assessment</button>
-
         <div class="insurance">
             <label>Select Insurance:</label>
             <select required>
@@ -496,8 +494,22 @@
                 <option value="kaiser">Kaiser</option>
                 <option value="united healthcare">United Healthcare</option>
             </select>
+        </div>  
 
-        </div>            
+        <div class="price range">
+            <label>Select a desired price range:</label>
+            <select required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="10-50">$10-50 per Session</option>
+                <option value="50-100">$50-100 per Session</option>
+                <option value="100-150">$100-150 per Session</option>
+                <option value="150-200">$150-200 per Session</option>
+                <option value="200+">$200+ per Session</option>
+            </select>
+        </div>
+
+        <button type="submit" class="submit">Submit Assessment</button>
+        
         </div>
     </form>
 </div>
