@@ -80,20 +80,20 @@
             margin-left: 20px; /* Add some space between sections */
         }
 
-        .image-container {
+        /* .image-container {
             display: flex;
             flex-direction: column; 
             align-items: center; 
             justify-content: center; 
             transition: opacity 0.3s ease;
-        }
+        } */
 
-        .image-description {
+        /* .image-description {
             font-size: 16px;
             color: #555;
             margin-top: 10px;
             transition: opacity 0.3s ease;
-        }
+        } */
 
         .container {
             max-width: 600px;
@@ -179,10 +179,10 @@
     </div>
 
     <!-- Container for images with descriptions -->
-    <div class="image-container">
+    <!-- <div class="image-container">
         <img id="animalImage" src="" alt="Cute Animal" style="display: none; max-width: 200px; border-radius: 10px;">
         <div class="image-description" id="imageDescription" style="display: none;">Fun Fact! Looking at cute animals can relieve stress!</div>
-    </div>
+    </div> -->
 </div>
 
 <div class="container">
@@ -225,38 +225,38 @@
                 footer.style.opacity = '1';
 
                 // Start showing the animal images
-                showAnimalImages();
+                //showAnimalImages();
             }, 1000);
         }, 2000);
     };
 
     // Array of animal images
-    const animalImages = [
-        "{{ url_for('static', filename='CodeAdaStockPhoto1.jpeg') }}",
-        "{{ url_for('static', filename='CodeAdaStockPhoto2.webp') }}",
-        "{{ url_for('static', filename='CodeAdaStockPhoto3.webp') }}",
-        "{{ url_for('static', filename='CodeAdaStockPhoto4.jpeg') }}",
-        "{{ url_for('static', filename='CodeAdaStockPhoto5.jpeg') }}",
-        "{{ url_for('static', filename='CodeAdaStockPhoto6.jpeg') }}",
-        "{{ url_for('static', filename='CodeAdaStockPhoto7.avif') }}",
-        "{{ url_for('static', filename='CodeAdaStockPhoto8.jpeg') }}"
-    ];
+    // const animalImages = [
+    //     "{{ url_for('static', filename='CodeAdaStockPhoto1.jpeg') }}",
+    //     "{{ url_for('static', filename='CodeAdaStockPhoto2.webp') }}",
+    //     "{{ url_for('static', filename='CodeAdaStockPhoto3.webp') }}",
+    //     "{{ url_for('static', filename='CodeAdaStockPhoto4.jpeg') }}",
+    //     "{{ url_for('static', filename='CodeAdaStockPhoto5.jpeg') }}",
+    //     "{{ url_for('static', filename='CodeAdaStockPhoto6.jpeg') }}",
+    //     "{{ url_for('static', filename='CodeAdaStockPhoto7.avif') }}",
+    //     "{{ url_for('static', filename='CodeAdaStockPhoto8.jpeg') }}"
+    // ];
 
-    let currentImageIndex = 0;
+    //let currentImageIndex = 0;
 
     // Function to show each image one by one
-    function showAnimalImages() {
-        const animalImage = document.getElementById('animalImage');
-        const imageDescription = document.getElementById('imageDescription');
+    // function showAnimalImages() {
+    //     const animalImage = document.getElementById('animalImage');
+    //     const imageDescription = document.getElementById('imageDescription');
 
-        setInterval(function() {
-            animalImage.src = animalImages[currentImageIndex];
-            animalImage.style.display = 'block';
-            imageDescription.style.display = 'block';
+    //     setInterval(function() {
+    //         animalImage.src = animalImages[currentImageIndex];
+    //         animalImage.style.display = 'block';
+    //         imageDescription.style.display = 'block';
 
-            currentImageIndex = (currentImageIndex + 1) % animalImages.length;
-        }, 3000); // Change image every 3 seconds
-    }
+    //         currentImageIndex = (currentImageIndex + 1) % animalImages.length;
+    //     }, 3000); // Change image every 3 seconds
+    // }
 
     function goToDoctor() {
         window.location.href = "{{ url_for('doctor') }}";
