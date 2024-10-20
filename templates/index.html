@@ -11,18 +11,17 @@
             width: 100%;
             height: 100%;
             font-family: 'Courier New', Courier, monospace;
-            overflow: hidden; /* Prevent scrolling during animation */
-            background-color: #EDF7F6; /* Soft pastel background */
+            overflow: hidden; 
+            background-color: #EDF7F6; 
         }
 
-        /* Initial overlay for full-screen intro */
         .intro-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #A28089; /* Warm, inviting color */
+            background-color: #A28089; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -40,9 +39,8 @@
             transition: transform 1s ease-out, opacity 1s ease-out;
         }
 
-        /* Banner for actual page content */
         .banner {
-            background-color: #FFA8B6; /* Soft pink */
+            background-color: #FFA8B6; 
             color: white;
             padding: 50px 20px;
             text-align: center;
@@ -54,51 +52,48 @@
             font-size: 40px;
             margin: 0;
             opacity: 0;
-            transition: opacity 1.5s ease;
+            transition: opacity 1s ease;
         }
 
-        /* Paragraph sections for matching information */
+        .content-container {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: flex-start; 
+            margin: 20px auto; 
+            max-width: 800px; 
+        }
+
         .info-section {
             background-color: #9DF9EF;
             padding: 30px;
             color: #333;
             text-align: center;
             border-radius: 15px;
-            margin: 20px 10px;
-            max-width: 600px;
-            font-size: 18px;
-            line-height: 1.5;
+            margin-right: 20px; 
+            flex: 1; 
         }
 
-        /* Moving images container */
-        .moving-images {
-            position: relative;
-            overflow: hidden;
-            height: 150px;
+        .image-container {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px 0;
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            transition: opacity 1s ease;
         }
 
-        .moving-images img {
-            height: 120px;
-            animation: smoothMove 40s linear infinite; /* Slower and smoother */
-            margin: 0 15px;
+        .image-description {
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+            transition: opacity 1s ease;
         }
 
-        @keyframes smoothMove {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* Main content container */
         .container {
             max-width: 600px;
             margin: 50px auto;
             text-align: center;
             opacity: 0;
-            transition: opacity 1.5s ease;
+            transition: opacity 1s ease;
         }
 
         h2 {
@@ -107,7 +102,6 @@
             margin-bottom: 20px;
         }
 
-        /* Button styles */
         button {
             padding: 15px 40px;
             font-size: 18px;
@@ -124,7 +118,6 @@
             background-color: #9DF9EF;
         }
 
-        /* Footer or extra content (optional) */
         footer {
             text-align: center;
             padding: 15px;
@@ -134,7 +127,7 @@
             width: 100%;
             bottom: 0;
             opacity: 0;
-            transition: opacity 1.5s ease;
+            transition: opacity 1s ease;
         }
     </style>
 </head>
@@ -147,28 +140,25 @@
 
 <!-- Actual content for the page -->
 <div class="banner">
-    <h1 id="welcomeText">Prioritizing Mental and Physcial Wellness in College - One Connection at a Time!</h1>
+    <h1 id="welcomeText">Prioritizing Mental and Physical Wellness in College - One Connection at a Time!</h1>
 </div>
 
-<!-- Information about patient-doctor matching -->
-<div class="info-section">
-    At Big10Health, we believe that finding the right doctor is key to your health journey. Whether you're a doctor or a patient, we help connect you with the right match for better health outcomes.
-</div>
+<!-- Container for the information and images -->
+<div class="content-container">
+    <!-- Information about patient-doctor matching -->
+    <div class="info-section">
+        At Big10Health, we believe that finding the right doctor is key to your health journey. Whether you're a doctor or a patient, we help connect you with the right match for better health outcomes.
+    </div>
 
-<!-- Container for moving images -->
-<div class="moving-images" id="movingImagesContainer">
-    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto1.jpeg') }}" alt="Image 1">
-    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto2.webp') }}" alt="Image 2">
-    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto3.webp') }}" alt="Image 3">
-    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto4.jpeg') }}" alt="Image 4">
-    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto5.jpeg') }}" alt="Image 5">
-    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto6.jpeg') }}" alt="Image 6">
-    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto7.avif') }}" alt="Image 7">
-    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto8.jpeg') }}" alt="Image 8">
+    <!-- Container for images with descriptions -->
+    <div class="image-container">
+        <img id="animalImage" src="" alt="Cute Animal" style="display: none; max-width: 200px; border-radius: 10px;">
+        <div class="image-description" id="imageDescription" style="display: none;">Fun Fact! Looking at cute animals can relieve stress!</div>
+    </div>
 </div>
 
 <div class="container">
-    <h2>Are you a Doctor or a Patient?</h2>
+    <h2>Get Started Today! Are you a Doctor or a Patient?</h2>
     <button onclick="goToDoctor()">Doctor</button>
     <button onclick="goToPatient()">Patient</button>
 </div>
@@ -201,19 +191,49 @@
                 welcomeText.style.opacity = '1';
                 container.style.opacity = '1';
                 footer.style.opacity = '1';
+
+                // Start showing the animal images
+                showAnimalImages();
             }, 1000);
         }, 2000);
     };
 
+    // Array of animal images
+    const animalImages = [
+        "{{ url_for('static', filename='CodeAdaStockPhoto1.jpeg') }}",
+        "{{ url_for('static', filename='CodeAdaStockPhoto2.webp') }}",
+        "{{ url_for('static', filename='CodeAdaStockPhoto3.webp') }}",
+        "{{ url_for('static', filename='CodeAdaStockPhoto4.jpeg') }}",
+        "{{ url_for('static', filename='CodeAdaStockPhoto5.jpeg') }}",
+        "{{ url_for('static', filename='CodeAdaStockPhoto6.jpeg') }}",
+        "{{ url_for('static', filename='CodeAdaStockPhoto7.avif') }}",
+        "{{ url_for('static', filename='CodeAdaStockPhoto8.jpeg') }}"
+    ];
+
+    let currentImageIndex = 0;
+
+    // Function to show each image one by one
+    function showAnimalImages() {
+        const animalImage = document.getElementById('animalImage');
+        const imageDescription = document.getElementById('imageDescription');
+
+        setInterval(function() {
+            animalImage.src = animalImages[currentImageIndex];
+            animalImage.style.display = 'block';
+            imageDescription.style.display = 'block';
+
+            currentImageIndex = (currentImageIndex + 1) % animalImages.length;
+        }, 3000); // Change image every 3 seconds
+    }
+
     function goToDoctor() {
-        window.location.href = "{{ url_for('doctor') }}";
+        window.location.href = "/doctor";
     }
 
     function goToPatient() {
-        window.location.href = "{{ url_for('patient') }}";
+        window.location.href = "/patient";
     }
 </script>
 
 </body>
 </html>
-Changes made:
