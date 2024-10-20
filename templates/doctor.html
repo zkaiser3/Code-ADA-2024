@@ -112,7 +112,7 @@
     function fillNewForm() {
         alert("Redirecting to form creation page...");
         // You can replace this with the actual redirection to a form page.
-        window.location.href = "new_form.html"; // Ensure the new_form.html exists or replace with your desired link
+        window.location.href = "{{ url_for('new_form') }}"; // Ensure the new_form.html exists or replace with your desired link
     }
 
     function editForm() {
