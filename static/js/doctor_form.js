@@ -70,7 +70,7 @@ document.getElementById('submit_button').addEventListener('click', function(even
         console.log('Selected price-range:', price); // Log it or use it as needed
     
 
-    fetch('/doctor_form', {
+    fetch('/submit_doctor_info', {
         method: 'POST',  // Sending data via POST
         headers: {
             'Content-Type': 'application/json',  // Specify that you're sending JSON data
@@ -85,9 +85,6 @@ document.getElementById('submit_button').addEventListener('click', function(even
     .then(response => response.json())  // Parse the response as JSON
     .then(data => {
         console.log('Success:', data);  // Log the response from the server
-        if (data.redirect) {
-            window.location.href = data.redirect; // Redirect to the new page
-        }
     })
     .catch((error) => {
         console.error('Error:', error);  // Handle any errors that occur
