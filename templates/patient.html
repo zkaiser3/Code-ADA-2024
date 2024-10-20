@@ -451,51 +451,51 @@
         <div class="availability">
             <div class="day">
                 <label>Sunday:</label>
-                <input type="checkbox" id="morn0" name="sunday" value="morning"> Morning
-                <input type="checkbox" id="after0" name="sunday" value="afternoon"> Afternoon
-                <input type="checkbox" id="night0" name="sunday" value="night"> Night
+                <input type="checkbox" id="sun0" name="sunday" value="morning"> Morning
+                <input type="checkbox" id="sun1" name="sunday" value="afternoon"> Afternoon
+                <input type="checkbox" id="sun3" name="sunday" value="night"> Night
             </div>
             <div class="day">
                 <label>Monday:</label>
-                <input type="checkbox" id="morn1" name="monday" value="morning"> Morning
-                <input type="checkbox" id="after1" name="monday" value="afternoon"> Afternoon
-                <input type="checkbox" id="night1" name="monday" value="night"> Night
+                <input type="checkbox" id="mon0" name="monday" value="morning"> Morning
+                <input type="checkbox" id="mon1" name="monday" value="afternoon"> Afternoon
+                <input type="checkbox" id="mon2" name="monday" value="night"> Night
             </div>
             <div class="day">
                 <label>Tuesday:</label>
-                <input type="checkbox" id="morn2" name="tuesday" value="morning"> Morning
-                <input type="checkbox" id="after2" name="tuesday" value="afternoon"> Afternoon
-                <input type="checkbox" id="night2" name="tuesday" value="night"> Night
+                <input type="checkbox" id="tues0" name="tuesday" value="morning"> Morning
+                <input type="checkbox" id="tues1" name="tuesday" value="afternoon"> Afternoon
+                <input type="checkbox" id="tues2" name="tuesday" value="night"> Night
             </div>
             <div class="day">
                 <label>Wednesday:</label>
-                <input type="checkbox" id="morn3" name="wednesday" value="morning"> Morning
-                <input type="checkbox" id="after3" name="wednesday" value="afternoon"> Afternoon
-                <input type="checkbox" id="night3" name="wednesday" value="night"> Night
+                <input type="checkbox" id="wed0" name="wednesday" value="morning"> Morning
+                <input type="checkbox" id="wed1" name="wednesday" value="afternoon"> Afternoon
+                <input type="checkbox" id="wed2" name="wednesday" value="night"> Night
             </div>
             <div class="day">
                 <label>Thursday:</label>
-                <input type="checkbox" id="morn4" name="thursday" value="morning"> Morning
-                <input type="checkbox" id="after4" name="thursday" value="afternoon"> Afternoon
-                <input type="checkbox" id="night4" name="thursday" value="night"> Night
+                <input type="checkbox" id="thurs0" name="thursday" value="morning"> Morning
+                <input type="checkbox" id="thurs1" name="thursday" value="afternoon"> Afternoon
+                <input type="checkbox" id="thurs2" name="thursday" value="night"> Night
             </div>
             <div class="day">
                 <label>Friday:</label>
-                <input type="checkbox" id="morn5" name="friday" value="morning"> Morning
-                <input type="checkbox" id="after5" name="friday" value="afternoon"> Afternoon
-                <input type="checkbox" id="night5" name="friday" value="night"> Night
+                <input type="checkbox" id="fri0" name="friday" value="morning"> Morning
+                <input type="checkbox" id="fri1" name="friday" value="afternoon"> Afternoon
+                <input type="checkbox" id="fri2" name="friday" value="night"> Night
             </div>
             <div class="day">
                 <label>Saturday:</label>
-                <input type="checkbox" id="morn6" name="saturday" value="morning"> Morning
-                <input type="checkbox" id="after6" name="saturday" value="afternoon"> Afternoon
-                <input type="checkbox" id="night6" name="saturday" value="night"> Night
+                <input type="checkbox" id="sat0" name="saturday" value="morning"> Morning
+                <input type="checkbox" id="sat1" name="saturday" value="afternoon"> Afternoon
+                <input type="checkbox" id="sat2" name="saturday" value="night"> Night
             </div>
         </div>
 
         <div class="insurance">
             <label>Select Insurance:</label>
-            <select required>
+            <select id="insurance" required>
                 <option value="" disabled selected>Select an option</option>
                 <option value="aetna">Aetna</option>
                 <option value="cigna">Cigna</option>
@@ -508,7 +508,7 @@
 
         <div class="price range">
             <label>Select a desired price range:</label>
-            <select required>
+            <select id="price" required>
                 <option value="" disabled selected>Select an option</option>
                 <option value="10-50">$10-50 per Session</option>
                 <option value="50-100">$50-100 per Session</option>

@@ -44,8 +44,8 @@ def patient_form():
     availability = data.get('availability')
     reason = data.get('reason')
     insurance = data.get('insurance')
-    price_range = data.get('price_range')
-    gender_preference = data.get('gender_preference')
+    price_range = data.get('price')
+    gender_preference = data.get('gender')
 
     # Add user handling logic
     patient = pt.Patient(name, availability, reason, insurance, price_range, gender_preference)
