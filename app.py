@@ -1,13 +1,22 @@
 from flask import Flask, render_template, request, jsonify, url_for
-app = Flask(__name__)
-import time
 import patient_therapist as pt
 import sqlite3
+
+DATABASE = 'database.db'
+app = Flask(__name__)
 
 
 @app.route('/') #called when post request is made to "/"
 def home(): 
     return render_template('index.html') #loads the main index.html page
+
+
+
+######################### SQL Integration ###################################
+def get_db_connection():
+    conn = sqlite3.connect('database.db')
+    conn.row_factory = sqlite3.Row
+    return conn
 
 
 ######################### Resource Integration ###################################
@@ -41,7 +50,6 @@ def patient_form():
     data = request.get_json()
 
     # Extract username and password from the data
-    name = data.get('name')
     availability = data.get('availability')
     reason = data.get('reason')
     insurance = data.get('insurance')
