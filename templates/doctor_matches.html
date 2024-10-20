@@ -6,10 +6,10 @@
     <title>Doctor Matches</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
+            background-color: #EDF7F6; /* Soft background color */
             color: #333;
         }
 
@@ -17,23 +17,26 @@
         .container {
             max-width: 800px;
             margin: 50px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            padding: 30px;
+            background-color: #FFF; /* White background for contrast */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            border-radius: 15px;
+            border: 2px solid #A28089; /* Muted rose border */
         }
 
         h1 {
             text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
+            color: #A28089; /* Muted Rose */
+            margin-bottom: 25px;
+            font-size: 36px;
         }
 
         p {
-            font-size: 16px;
+            font-size: 18px;
             color: #555;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            padding: 0 20px;
         }
 
         ul {
@@ -42,21 +45,45 @@
         }
 
         li {
-            background-color: #eef;
+            background-color: #9DF9EF; /* Light Aqua */
             padding: 15px;
             margin: 10px 0;
-            border-radius: 5px;
+            border-radius: 10px;
             font-size: 18px;
             color: #333;
             text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
-        /* Placeholder styling for now */
+        li:hover {
+            background-color: #51E2F5; /* Bright blue on hover */
+            transform: scale(1.05);
+        }
+
+        /* Placeholder styling for no matches */
         .no-matches {
             font-size: 18px;
-            color: #e74c3c;
+            color: #FFA8B6; /* Soft pink for the no matches text */
             text-align: center;
             margin-top: 30px;
+        }
+
+        /* Additional touches for a cute button */
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 30px;
+            background-color: #FFA8B6; /* Soft pink */
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #A28089; /* Muted rose on hover */
         }
     </style>
 </head>
@@ -68,13 +95,15 @@
 
     <!-- Placeholder list of doctor matches -->
     <ul id="doctorMatches">
-        <!-- Example items -->
         <li>Dr. Smith (Specialist in Mental Health)</li>
         <li>Dr. Johnson (Physical Therapy Specialist)</li>
     </ul>
 
     <!-- If no matches (example) -->
     <!-- <p class="no-matches">No doctor matches found at this time.</p> -->
+
+    <!-- Cute button example -->
+    <button>Find More Doctors</button>
 </div>
 
 <script>
