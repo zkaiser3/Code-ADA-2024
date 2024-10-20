@@ -9,6 +9,12 @@ def home():
     return render_template('index.html') #loads the main index.html page
 
 
+######################### Resource Integration ###################################
+@app.route('/resources')
+def resources(): 
+    return render_template('resources.html') #loads the signup.html website
+
+
 ######################### Doctor Integration ###################################
 @app.route('/doctor')
 def doctor(): 

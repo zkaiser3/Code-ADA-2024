@@ -11,7 +11,7 @@
             width: 100%;
             height: 100%;
             font-family: 'Courier New', Courier, monospace;
-            overflow: hidden; 
+            overflow: auto; 
             background-color: #EDF7F6; 
         }
 
@@ -52,7 +52,7 @@
             font-size: 40px;
             margin: 0;
             opacity: 0;
-            transition: opacity 1s ease;
+            transition: opacity 0.3s ease;
         }
 
         .content-container {
@@ -73,27 +73,34 @@
             flex: 1; 
         }
 
+        .resource-section {
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            margin-left: 20px; /* Add some space between sections */
+        }
+
         .image-container {
             display: flex;
             flex-direction: column; 
             align-items: center; 
             justify-content: center; 
-            transition: opacity 1s ease;
+            transition: opacity 0.3s ease;
         }
 
         .image-description {
             font-size: 16px;
             color: #555;
             margin-top: 10px;
-            transition: opacity 1s ease;
+            transition: opacity 0.3s ease;
         }
 
         .container {
             max-width: 600px;
             margin: 50px auto;
             text-align: center;
-            opacity: 0;
-            transition: opacity 1s ease;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.3s ease;
         }
 
         h2 {
@@ -116,6 +123,22 @@
 
         button:hover {
             background-color: #9DF9EF;
+        }
+
+        .resource-button {
+            padding: 15px 40px;
+            font-size: 18px;
+            margin: 20px 10px;
+            cursor: pointer;
+            background-color: #FFA8B6; /* Button color */
+            color: white;              /* Text color */
+            border: none;              /* No border */
+            border-radius: 25px;      /* Rounded corners */
+            transition: background-color 0.3s ease; /* Transition effect */
+        }
+
+        .resource-button:hover {
+            background-color: #A28089; /* Color when hovered */
         }
 
         footer {
@@ -150,6 +173,11 @@
         At Big10Health, we believe that finding the right doctor is key to your health journey. Whether you're a doctor or a patient, we help connect you with the right match for better health outcomes.
     </div>
 
+    <!-- Separate section for the resource button -->
+    <div class="resource-section">
+        <button class="resource-button" onclick="goToResources()">Seek Campus Resources</button>
+    </div>
+
     <!-- Container for images with descriptions -->
     <div class="image-container">
         <img id="animalImage" src="" alt="Cute Animal" style="display: none; max-width: 200px; border-radius: 10px;">
@@ -162,9 +190,7 @@
     <button onclick="goToDoctor()">Doctor</button>
     <button onclick="goToPatient()">Patient</button>
 </div>
-<div class="container">
-    <button class="resource-button" onclick="goToResources()">Seek Campus Resources</button>
-</div>
+
 <!-- Optional footer -->
 <footer id="footerContent">
     2024 Code Ada Web Development Project by Noemia Mahmud, Zoe Kaiser, & Anna Wilkowski
@@ -176,7 +202,7 @@
         const introOverlay = document.getElementById('introOverlay');
         const introText = document.getElementById('introText');
         const welcomeText = document.getElementById('welcomeText');
-        const container = document.querySelector('.container');
+        const containers = document.querySelectorAll('.container');
         const footer = document.getElementById('footerContent');
 
         // Animate the intro text sliding down
@@ -191,7 +217,11 @@
             setTimeout(function() {
                 introOverlay.style.display = 'none';
                 welcomeText.style.opacity = '1';
-                container.style.opacity = '1';
+
+                // Show all containers
+                containers.forEach(container => {
+                    container.style.opacity = '1';
+                });
                 footer.style.opacity = '1';
 
                 // Start showing the animal images
@@ -229,14 +259,15 @@
     }
 
     function goToDoctor() {
-        window.location.href = "/doctor";
+        window.location.href = "{{ url_for('doctor') }}";
     }
 
     function goToPatient() {
-        window.location.href = "/patient";
+        window.location.href = "{{ url_for('patient') }}";
     }
+    
     function goToResources() {
-        window.location.href = "/resources"; // Adjust this route based on your Flask app
+        window.location.href = "{{ url_for('resources') }}"; // Adjust this route based on your Flask app
     }
 </script>
 
