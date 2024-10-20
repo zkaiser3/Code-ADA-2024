@@ -94,33 +94,99 @@
         <!-- Specialties -->
         <div class="form-group">
             <label for="specialty">Specialty</label>
-            <select id="specialty" name="specialty" required>
-                <option value="">Select Specialty</option>
-                <option value="Cardiology">Cardiology</option>
-                <option value="Dermatology">Dermatology</option>
-                <option value="Neurology">Neurology</option>
-                <option value="Pediatrics">Pediatrics</option>
-                <option value="General Practitioner">General Practitioner</option>
-                <option value="Psychiatry">Psychiatry</option>
-                <option value="Surgery">Surgery</option>
+            <select id="specialty" name="specialty" multiple required>
+                <option value="Depression">Depression</option>
+                <option value="Anxiety">Anxiety</option>
+                <option value="ADHD">ADHD</option>
+                <option value="Disordered Eating">Disordered Eating</option>
+                <option value="PTSD">PTSD</option>
+                <option value="LGBTQ+">LGBTQ+</option>
+                <option value="Subtance Abuse">Substance Abuse</option>
+            </select>
+            <small>Select multiple specialties by holding down the Ctrl (Windows) or Command (Mac) key.</small>
+        </div>
+
+        <h2>Availability</h2>
+        <div class="availability">
+            <div class="day">
+                <label>Sunday:</label>
+                <input type="checkbox" id="sunday-morning" name="sunday" value="morning"> Morning
+                <input type="checkbox" id="sunday-afternoon" name="sunday" value="afternoon"> Afternoon
+                <input type="checkbox" id="sunday-night" name="sunday" value="night"> Night
+            </div>
+            <div class="day">
+                <label>Monday:</label>
+                <input type="checkbox" id="monday-morning" name="monday" value="morning"> Morning
+                <input type="checkbox" id="monday-afternoon" name="monday" value="afternoon"> Afternoon
+                <input type="checkbox" id="monday-night" name="monday" value="night"> Night
+            </div>
+            <div class="day">
+                <label>Tuesday:</label>
+                <input type="checkbox" id="tuesday-morning" name="tuesday" value="morning"> Morning
+                <input type="checkbox" id="tuesday-afternoon" name="tuesday" value="afternoon"> Afternoon
+                <input type="checkbox" id="tuesday-night" name="tuesday" value="night"> Night
+            </div>
+            <div class="day">
+                <label>Wednesday:</label>
+                <input type="checkbox" id="wednesday-morning" name="wednesday" value="morning"> Morning
+                <input type="checkbox" id="wednesday-afternoon" name="wednesday" value="afternoon"> Afternoon
+                <input type="checkbox" id="wednesday-night" name="wednesday" value="night"> Night
+            </div>
+            <div class="day">
+                <label>Thursday:</label>
+                <input type="checkbox" id="thursday-morning" name="thursday" value="morning"> Morning
+                <input type="checkbox" id="thursday-afternoon" name="thursday" value="afternoon"> Afternoon
+                <input type="checkbox" id="thursday-night" name="thursday" value="night"> Night
+            </div>
+            <div class="day">
+                <label>Friday:</label>
+                <input type="checkbox" id="friday-morning" name="friday" value="morning"> Morning
+                <input type="checkbox" id="friday-afternoon" name="friday" value="afternoon"> Afternoon
+                <input type="checkbox" id="friday-night" name="friday" value="night"> Night
+            </div>
+            <div class="day">
+                <label>Saturday:</label>
+                <input type="checkbox" id="saturday-morning" name="saturday" value="morning"> Morning
+                <input type="checkbox" id="saturday-afternoon" name="saturday" value="afternoon"> Afternoon
+                <input type="checkbox" id="saturday-night" name="saturday" value="night"> Night
+            </div>
+        </div>
+
+        <div class="statement other">
+            <label>Your Gender:</label>
+            <select required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="nonbinary">Nonbinary</option>
+                <option value="prefer not to say">Prefer not to say</option>
             </select>
         </div>
 
-        <!-- Rates and Experience -->
+        <!-- Insurances -->
         <div class="form-group">
-            <label for="years_experience">Years of Experience</label>
-            <input type="number" id="years_experience" name="years_experience" min="0" required placeholder="Enter number of years">
+            <label for="specialty">Accepted Insurances:</label>
+            <select id="specialty" name="specialty" multiple required>
+                <option value="Aetna">Aetna</option>
+                <option value="Cigna">Cigna</option>
+                <option value="Blue Cross Blue Shield">Blue Cross Blue Shield</option>
+                <option value="Humana">Humana</option>
+                <option value="Kaiser">Kaiser</option>
+                <option value="United Healthcare">United Healthcare</option>
+            </select>
+            <small>Select multiple insurances by holding down the Ctrl (Windows) or Command (Mac) key.</small>
         </div>
 
-        <div class="form-group">
-            <label for="rate_per_hour">Rate per Hour ($)</label>
-            <input type="number" id="rate_per_hour" name="rate_per_hour" min="0" required placeholder="Enter your hourly rate">
-        </div>
-
-        <!-- Additional Info -->
-        <div class="form-group">
-            <label for="bio">Short Bio</label>
-            <textarea id="bio" name="bio" rows="5" required placeholder="Tell us about yourself..."></textarea>
+        <div class="price range">
+            <label>Select your cost of services:</label>
+            <select required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="10-50">$10-50 per Session</option>
+                <option value="50-100">$50-100 per Session</option>
+                <option value="100-150">$100-150 per Session</option>
+                <option value="150-200">$150-200 per Session</option>
+                <option value="200+">$200+ per Session</option>
+            </select>
         </div>
 
         <button type="submit">Submit</button>
