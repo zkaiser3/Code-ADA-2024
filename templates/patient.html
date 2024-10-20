@@ -437,8 +437,6 @@
 
         </div>
 
-        <button type="submit" class="submit">Submit Assessment</button>
-
         <h2>Availability</h2>
         <div class="availability">
             <div class="day">
@@ -483,6 +481,23 @@
                 <input type="checkbox" id="saturday-afternoon" name="saturday" value="afternoon"> Afternoon
                 <input type="checkbox" id="saturday-night" name="saturday" value="night"> Night
             </div>
+        </div>
+
+        <button type="submit" class="submit">Submit Assessment</button>
+
+        <div class="insurance">
+            <label>Select Insurance:</label>
+            <select required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="aetna">Aetna</option>
+                <option value="cigna">Cigna</option>
+                <option value="blue cross blue shield">Blue Cross Blue Shield</option>
+                <option value="humana">Humana</option>
+                <option value="kaiser">Kaiser</option>
+                <option value="united healthcare">United Healthcare</option>
+            </select>
+
+        </div>            
         </div>
     </form>
 </div>
