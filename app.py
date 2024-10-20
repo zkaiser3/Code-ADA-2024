@@ -14,9 +14,9 @@ def home():
 def doctor(): 
     return render_template('doctor.html') #loads the signup.html website
 
-@app.route('/new_form')
+@app.route('/doctor_form')
 def new_form(): 
-    return render_template('new_form.html') #loads the signup.html website
+    return render_template('doctor_form.html') #loads the signup.html website
 
 
 ######################### Patient Integration ###################################
