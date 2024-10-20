@@ -162,7 +162,9 @@
     <button onclick="goToDoctor()">Doctor</button>
     <button onclick="goToPatient()">Patient</button>
 </div>
-
+<div class="container">
+    <button class="resource-button" onclick="goToResources()">Seek Campus Resources</button>
+</div>
 <!-- Optional footer -->
 <footer id="footerContent">
     2024 Code Ada Web Development Project by Noemia Mahmud, Zoe Kaiser, & Anna Wilkowski
@@ -232,6 +234,9 @@
 
     function goToPatient() {
         window.location.href = "/patient";
+    }
+    function goToResources() {
+        window.location.href = "/resources"; // Adjust this route based on your Flask app
     }
 </script>
 
