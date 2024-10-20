@@ -48,11 +48,11 @@ document.getElementById('submit_button').addEventListener('click', function(even
     console.log('Selected gender preference:', gender); // Log it or use it as needed
 
     //retreiving insurances
-    const insuranceSelect = document.getElementById('specialty');
+    const insuranceSelect = document.getElementById('insurance');
     // Initialize an array to hold selected values
     const selectedInsurances = [];
     // Loop through selected options and push values to the array
-    for (let option of specialtyInsurances.selectedOptions) {
+    for (let option of insuranceSelect.selectedOptions) {
         selectedInsurances.push(option.value);
     }
     // Output the selected specialties in an array
@@ -76,15 +76,18 @@ document.getElementById('submit_button').addEventListener('click', function(even
             'Content-Type': 'application/json',  // Specify that you're sending JSON data
         },
         body: JSON.stringify({ 
-            specialty: specialty, 
+            specialty: selectedSpecialties, 
             availability: availability, 
-            insurance: insurance, 
+            insurance: selectedInsurances, 
             price: price
         })  // Convert the array to JSON and include in the body
     })
     .then(response => response.json())  // Parse the response as JSON
     .then(data => {
         console.log('Success:', data);  // Log the response from the server
+        if (data.redirect) {
+            window.location.href = data.redirect; // Redirect to the new page
+        }
     })
     .catch((error) => {
         console.error('Error:', error);  // Handle any errors that occur

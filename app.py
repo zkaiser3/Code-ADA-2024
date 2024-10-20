@@ -34,7 +34,7 @@ def doctor():
 def new_form(): 
     return render_template('doctor_form.html') #loads the signup.html website
 
-@app.route('/submit_doctor_info')
+@app.route('/submit_doctor_info', methods=['POST'])
 def submit_doctor_info():
     data = request.get_json()
 
@@ -42,11 +42,10 @@ def submit_doctor_info():
     specialty = data.get('specialty')
     insurance = data.get('insurance')
     price = data.get('price')
-    gender = data.get('gender')
 
-    doctor = pt.Therapist(name, availability, specialty, insurance, price, gender)
+    doctor = pt.Therapist("bob", availability, specialty, insurance, price)
 
-    return jsonify({"message": "Form submitted correctly"})
+    return jsonify({"message": "Form submitted correctly", "redirect": url_for('doctor_matches')})
 
 
 ######################### Patient Integration ###################################
@@ -71,7 +70,7 @@ def patient_form():
     gender_preference = data.get('gender')
 
     # Add user handling logic
-    patient = pt.Patient(name, availability, reason, insurance, price_range, gender_preference)
+    patient = pt.Patient("marissa", availability, reason, insurance, price_range, gender_preference)
 
     # Return a JSON response
     return jsonify({"message": "Form submitted correctly", "redirect": url_for('doctor_matches')})

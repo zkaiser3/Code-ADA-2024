@@ -174,8 +174,8 @@
 
         <!-- Insurances -->
         <div class="form-group">
-            <label for="specialty">Accepted Insurances:</label>
-            <select id="specialty" name="specialty" multiple required>
+            <label for="insurance">Accepted Insurances:</label>
+            <select id="insurance" name="insurance" multiple required>
                 <option value="Aetna">Aetna</option>
                 <option value="Cigna">Cigna</option>
                 <option value="Blue Cross Blue Shield">Blue Cross Blue Shield</option>
@@ -198,9 +198,10 @@
             </select>
         </div>
 
-        <button type="submit">Submit</button>
+        <button id="submit_button" type="submit">Submit</button>
     </form>
 </div>
 
+<script src="{{ url_for('static', filename='js/doctor_form.js') }}"></script>
 </body>
 </html>

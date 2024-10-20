@@ -13,79 +13,104 @@ class Patient:
         """
         Adds the patient to the SQL "patients" table. Automatically called when a Patient class is created
         """
-        with sqlite3.connect('patients.db') as conn:
+        with sqlite3.connect('database.db') as conn:
             cursor = conn.cursor()
             patient_info = (self._availability, self._reason, self._insurance, self._price_range, self._gender_preference)
 
             try:
-                cursor.execute("INSERT INTO patients (availability, reason, insurance, price_range, gender_preference) VALUES (?, ?, ?, ?);", patient_info)
+                cursor.execute("INSERT INTO patients (availability, reason, insurance, price_range, gender_preference) VALUES (?, ?, ?, ?, ?);", patient_info)
                 print("Patient has been added")
                 conn.commit()
             except sqlite3.Error as e:
                 print(f"SQL query error: {e}")
-
+    
+    #availability property
     @property
     def availability(self):
         return self._availability
     
     @availability.setter
-    def availability(self, newavailability):
-        with sqlite3.connect('patients.db') as conn:
+    def availability(self, new_availability):
+        with sqlite3.connect('database.db') as conn:
             cursor = conn.cursor()
             try:
-                cursor.execute('UPDATE users SET username = ? WHERE username = ?;', (newusername, self._username))
+                cursor.execute('UPDATE patients SET availability = ? WHERE availability = ?;', 
+                               (new_availability, self._availability))
                 conn.commit()
-                self._username = newusername
+                self._availability = new_availability
             except sqlite3.Error as e:
-                print(f"Database error: {e}")
+                print(f"Database error (availability): {e}")
 
+    # Reason property
     @property
-    def first_name(self):
-        return self._first_name
+    def reason(self):
+        return self._reason
     
-    @first_name.setter
-    def first_name(self, newfirstname):
-        with sqlite3.connect('MangaAppTest.db') as conn:
+    @reason.setter
+    def reason(self, new_reason):
+        with sqlite3.connect('database.db') as conn:
             cursor = conn.cursor()
             try:
-                cursor.execute('UPDATE users SET first_name = ? WHERE username = ?;', (newfirstname, self._username))
+                cursor.execute('UPDATE patients SET reason = ? WHERE reason = ?;', 
+                               (new_reason, self._reason))
                 conn.commit()
-                self._first_name = newfirstname 
+                self._reason = new_reason
             except sqlite3.Error as e:
-                print(f"Database error: {e}")
+                print(f"Database error (reason): {e}")
 
+    # Insurance property
     @property
-    def last_name(self):
-        return self._last_name
+    def insurance(self):
+        return self._insurance
     
-    @last_name.setter
-    def last_name(self, newlastname):
-        with sqlite3.connect('MangaAppTest.db') as conn:
+    @insurance.setter
+    def insurance(self, new_insurance):
+        with sqlite3.connect('database.db') as conn:
             cursor = conn.cursor()
             try:
-                cursor.execute('UPDATE users SET last_name = ? WHERE username = ?;', (newlastname, self._username))
+                cursor.execute('UPDATE patients SET insurance = ? WHERE insurance = ?;', 
+                               (new_insurance, self._insurance))
                 conn.commit()
-                self._last_name = newlastname
+                self._insurance = new_insurance
             except sqlite3.Error as e:
-                print(f"Database error: {e}")
+                print(f"Database error (insurance): {e}")
 
+    # Price Range property
     @property
-    def password(self):
-        return self._password
+    def price_range(self):
+        return self._price_range
     
-    @password.setter
-    def password(self, newpassword):
-        with sqlite3.connect('MangaAppTest.db') as conn:
+    @price_range.setter
+    def price_range(self, new_price_range):
+        with sqlite3.connect('database.db') as conn:
             cursor = conn.cursor()
             try:
-                cursor.execute('UPDATE users SET password = ? WHERE username = ?;', (newpassword, self._username))
+                cursor.execute('UPDATE patients SET price_range = ? WHERE price_range = ?;', 
+                               (new_price_range, self._price_range))
                 conn.commit()
-                self._password = newpassword
+                self._price_range = new_price_range
             except sqlite3.Error as e:
-                print(f"Database error: {e}")
+                print(f"Database error (price range): {e}")
+
+    # Gender Preference property
+    @property
+    def gender_preference(self):
+        return self._gender_preference
+    
+    @gender_preference.setter
+    def gender_preference(self, new_gender_preference):
+        with sqlite3.connect('database.db') as conn:
+            cursor = conn.cursor()
+            try:
+                cursor.execute('UPDATE patients SET gender_preference = ? WHERE gender_preference = ?;', 
+                               (new_gender_preference, self._gender_preference))
+                conn.commit()
+                self._gender_preference = new_gender_preference
+            except sqlite3.Error as e:
+                print(f"Database error (gender preference): {e}")
 
     @classmethod
-    def find_user(cls, username):
+    def find_patient(cls, name):
         with sqlite3.connect('MangaAppTest.db') as conn:
             cursor = conn.cursor()
 
