@@ -533,25 +533,25 @@
         const statementDiv = button.parentElement.parentElement;
         // Find all sibling buttons and reset their background
         const buttons = button.parentElement.querySelectorAll('button');
-        buttons.forEach(btn => btn.style.backgroundColor = '#a8ffab');
+        buttons.forEach(btn => btn.style.backgroundColor = '#FFA8B6');
         
         // Highlight the clicked button
-        button.style.backgroundColor = '#45a049';
+        button.style.backgroundColor = '#A28089';
         
         // Find the hidden input in the same statement and set its value
         const hiddenInput = statementDiv.querySelector('input[type="hidden"]');
         hiddenInput.value = button.innerText;
     }
 
-    // // Handle form submission
-    // document.getElementById('healthAssessmentForm').addEventListener('submit', function(event) {
-    //     event.preventDefault(); // Prevent form from reloading the page
+    // Handle form submission
+    document.getElementById('healthAssessmentForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from reloading the page
 
-    //     // Simulate saving form data (you can handle form data storage here)
+        // Simulate saving form data (you can handle form data storage here)
 
-    //     // Redirect to doctor_matches.html after submission
-    //     window.location.href = "{{ url_for('doctor_matches') }}"; // Replace with your actual matching page
-    // });
+        // Redirect to doctor_matches.html after submission
+        window.location.href = "{{ url_for('doctor_matches') }}"; // Replace with your actual matching page
+    });
 </script>
 
 </body>
