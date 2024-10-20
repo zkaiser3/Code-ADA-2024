@@ -518,8 +518,8 @@
             </select>
         </div>
 
-        <button id="submit_button" type="submit" class="submit">Submit Assessment</button>
-        
+        <button id="submit_button" type="submit" class="submit" >Submit Assessment </button>
+    
         </div>
     </form>
 </div>
@@ -543,15 +543,7 @@
         hiddenInput.value = button.innerText;
     }
 
-    // Handle form submission
-    document.getElementById('healthAssessmentForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form from reloading the page
 
-        // Simulate saving form data (you can handle form data storage here)
-
-        // Redirect to doctor_matches.html after submission
-        window.location.href = "{{ url_for('doctor_matches') }}"; // Replace with your actual matching page
-    });
 </script>
 
 </body>
