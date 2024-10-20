@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify, url_for
 app = Flask(__name__)
 import time
 import patient_therapist as pt
+import sqlite3
 
 
 @app.route('/') #called when post request is made to "/"
