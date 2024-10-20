@@ -122,17 +122,21 @@
             margin-top: 30px;
             padding: 0 20px;
         }
+        .resource-button-container {
+            text-align: center;
+            margin-top: 20px; /* Optional: adds some space above the button */
+        }       
 
         .resource-button {
             padding: 15px 40px;
             font-size: 18px;
-            margin: 20px auto;
             background-color: #FFA8B6; /* Button color */
             color: white;
             border: none;
             border-radius: 25px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            display: inline-block; /* Ensures it respects the text-align property */
         }
 
         .resource-button:hover {
