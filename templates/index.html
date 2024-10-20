@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor or Patient</title>
     <style>
+        * {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
         body, html {
             margin: 0;
             padding: 0;
@@ -12,7 +16,7 @@
             height: 100%;
             font-family: 'Courier New', Courier, monospace;
             overflow: auto; 
-            background-color: #EDF7F6; 
+            background-color: #a28089; 
         }
 
         .intro-overlay {
@@ -42,14 +46,13 @@
         .banner {
             background-color: #FFA8B6; 
             color: white;
-            padding: 50px 20px;
+            padding: 20px 20px;
             text-align: center;
-            height: 8%;
-            border-bottom: 5px solid #A28089;
+            height: 3.5%;
         }
 
         .banner h1 {
-            font-size: 40px;
+            font-size: 18px;
             margin: 0;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -61,15 +64,16 @@
             align-items: flex-start; 
             margin: 20px auto; 
             max-width: 800px; 
+            margin-top: 20px; /* Ensure there is space for scrolling */
+            background-color: transparent;
+            padding: 0;
         }
 
         .info-section {
-            background-color: #9DF9EF;
-            padding: 30px;
-            color: #A28089;
+            background-color: transparent;
+            padding: 0;
+            color: white;
             text-align: center;
-            border-radius: 15px;
-            margin-right: 20px; 
             flex: 1; 
         }
 
@@ -96,17 +100,32 @@
         } */
 
         .container {
-            background-color: #9DF9EF;
-            border-radius: 15px;
             max-width: 600px;
-            margin: 50px auto;
+            height: auto; /* Full height of the viewport */
+            padding: 40px;
+            display: flex; /* Use flexbox */
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center horizontally */
+            justify-content: center; /* Center vertically */
             text-align: center;
-            display: flex;
+            background-color: #edf7f6; /* Background color for the container */
+            border-radius: 15px; /* Rounded corners */
+            margin: 40px auto; /* Center the container */
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.3s ease;
         }
+
+        .heading-box {
+        background-color: #FFA8B6; /* Different color for the heading box */
+        padding: 20px; /* Padding inside the box */
+        border-radius: 15px; /* Rounded corners */
+        margin-bottom: 20px; /* Space below the box */
+        }
+
 
         h2 {
             font-size: 28px;
-            color: #A28089;
+            color: white;
             margin-bottom: 20px;
         }
 
@@ -115,7 +134,7 @@
             font-size: 18px;
             margin: 10px;
             cursor: pointer;
-            background-color: #51E2F5;
+            background-color: #a28089;
             color: white;
             border: none;
             border-radius: 25px;
@@ -123,7 +142,7 @@
         }
 
         button:hover {
-            background-color: #9DF9EF;
+            background-color: #854b5a;
         }
 
         .resource-button {
@@ -131,8 +150,8 @@
             font-size: 18px;
             margin: 20px 10px;
             cursor: pointer;
-            background-color: #9DF9EF; /* Button color */
-            color: #A28089;              /* Text color */
+            background-color: #FFA8B6; /* Button color */
+            color: white;              /* Text color */
             border: none;              /* No border */
             border-radius: 25px;      /* Rounded corners */
             transition: background-color 0.3s ease; /* Transition effect */
@@ -145,7 +164,7 @@
         footer {
             text-align: center;
             padding: 15px;
-            background-color: #A28089;
+            background-color: #885e69;
             color: white;
             position: fixed;
             width: 100%;
@@ -166,12 +185,16 @@
 <div class="banner">
     <h1 id="welcomeText">Prioritizing Mental and Physical Wellness in College - One Connection at a Time!</h1>
 </div>
+
+<!-- Container for the information and images -->
 <div class="container">
+    <div class="heading-box">
     <h2>Get Started Today! Are you a Doctor or a Patient?</h2>
+    </div>
     <button onclick="goToDoctor()">Doctor</button>
     <button onclick="goToPatient()">Patient</button>
 </div>
-<!-- Container for the information and images -->
+
 <div class="content-container">
     <!-- Information about patient-doctor matching -->
     <div class="info-section">
@@ -189,7 +212,6 @@
         <div class="image-description" id="imageDescription" style="display: none;">Fun Fact! Looking at cute animals can relieve stress!</div>
     </div> -->
 </div>
-
 
 <!-- Optional footer -->
 <footer id="footerContent">
