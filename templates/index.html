@@ -110,9 +110,10 @@
             text-align: center;
             background-color: #edf7f6; /* Background color for the container */
             border-radius: 15px; /* Rounded corners */
-            margin: 40px auto; /* Center the container */
+            margin: 70px auto; /* Center the container */
             opacity: 0; /* Initially hidden */
             transition: opacity 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .heading-box {
@@ -127,6 +128,11 @@
             font-size: 28px;
             color: white;
             margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
         }
 
         button {
@@ -189,10 +195,12 @@
 <!-- Container for the information and images -->
 <div class="container">
     <div class="heading-box">
-    <h2>Get Started Today! Are you a Doctor or a Patient?</h2>
+    <h2>To get started, register as a doctor or patient. For more student resources, look below!</h2>
     </div>
+    <div class="button-container">
     <button onclick="goToDoctor()">Doctor</button>
     <button onclick="goToPatient()">Patient</button>
+    </div>
 </div>
 
 <div class="content-container">
