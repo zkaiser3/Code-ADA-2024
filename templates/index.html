@@ -10,9 +10,9 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
             overflow: hidden; /* Prevent scrolling during animation */
-            background-color: #f0f8ff; /* Light background */
+            background-color: #EDF7F6; /* Soft pastel background */
         }
 
         /* Initial overlay for full-screen intro */
@@ -22,18 +22,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #477cab; /* Dark background for intro */
+            background-color: #A28089; /* Warm, inviting color */
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 100; /* Ensure it stays on top */
+            z-index: 100;
             opacity: 1;
             transition: opacity 1s ease-out;
         }
 
         .intro-overlay h1 {
-            color: white;
-            font-size: 64px;
+            color: #FFF;
+            font-size: 56px;
             text-align: center;
             transform: translateY(-200px);
             opacity: 0;
@@ -42,83 +42,93 @@
 
         /* Banner for actual page content */
         .banner {
-            background-image: url('banner-background.jpg'); /* Replace with actual stock photo */
-            background-size: cover;
-            background-position: center;
+            background-color: #FFA8B6; /* Soft pink */
             color: white;
-            padding: 100px 20px;
+            padding: 50px 20px;
             text-align: center;
             height: 8%;
+            border-bottom: 5px solid #A28089;
         }
 
         .banner h1 {
-            font-size: 48px;
+            font-size: 40px;
             margin: 0;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Text shadow for better visibility */
             opacity: 0;
-            transition: opacity 1.5s ease; /* Smooth transition */
+            transition: opacity 1.5s ease;
+        }
+
+        /* Paragraph sections for matching information */
+        .info-section {
+            background-color: #9DF9EF;
+            padding: 30px;
+            color: #333;
+            text-align: center;
+            border-radius: 15px;
+            margin: 20px 10px;
+            max-width: 600px;
+            font-size: 18px;
+            line-height: 1.5;
         }
 
         /* Moving images container */
         .moving-images {
             position: relative;
             overflow: hidden;
-            height: 100px; /* Adjust height as needed */
+            height: 150px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 0px 0; /* Space between sections */
+            margin: 20px 0;
         }
 
         .moving-images img {
-            height: 100px; /* Adjust image size */
-            animation: move 30s linear infinite; /* Move animation */
-            margin: 0 10px; /* Space between images */
+            height: 120px;
+            animation: smoothMove 40s linear infinite; /* Slower and smoother */
+            margin: 0 15px;
         }
 
-        @keyframes move {
-            0% { transform: translateX(100%); } /* Start off the right */
-            100% { transform: translateX(-100%); } /* End off the left */
+        @keyframes smoothMove {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
         /* Main content container */
         .container {
-            max-width: 500px;
+            max-width: 600px;
             margin: 50px auto;
             text-align: center;
             opacity: 0;
             transition: opacity 1.5s ease;
-            padding-bottom: 10px; /* Added padding to prevent overlap with footer */
         }
 
         h2 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 30px;
+            font-size: 28px;
+            color: #A28089;
+            margin-bottom: 20px;
         }
 
         /* Button styles */
         button {
-            padding: 15px 30px;
+            padding: 15px 40px;
             font-size: 18px;
             margin: 10px;
             cursor: pointer;
-            background-color: #477cab;
+            background-color: #51E2F5;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
             transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #3d6294; /* Darker shade on hover */
+            background-color: #9DF9EF;
         }
 
         /* Footer or extra content (optional) */
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #333;
+            padding: 15px;
+            background-color: #A28089;
             color: white;
             position: fixed;
             width: 100%;
@@ -132,27 +142,29 @@
 
 <!-- Full-screen intro overlay -->
 <div class="intro-overlay" id="introOverlay">
-    <h1 id="introText">Big10Health</h1>
+    <h1 id="introText">Welcome to Big10Health</h1>
 </div>
 
 <!-- Actual content for the page -->
 <div class="banner">
-    <h1 id="welcomeText">Welcome to Big10Health!</h1>
+    <h1 id="welcomeText">Prioritizing Mental and Physcial Wellness in College - One Connection at a Time!</h1>
+</div>
+
+<!-- Information about patient-doctor matching -->
+<div class="info-section">
+    At Big10Health, we believe that finding the right doctor is key to your health journey. Whether you're a doctor or a patient, we help connect you with the right match for better health outcomes.
 </div>
 
 <!-- Container for moving images -->
 <div class="moving-images" id="movingImagesContainer">
-    <!-- Add your images here -->
-    <img src="{{ url_for('static', filename= '/CodeAdaStockPhoto1.jpeg') }}" alt="Image 1">
-    <img src="{{ url_for('static', filename= '/CodeAdaStockPhoto2.webp') }}" alt="Image 2">
-    <img src="{{ url_for('static', filename= '/CodeAdaStockPhoto3.webp') }}" alt="Image 3">
-    <img src="{{ url_for('static', filename= '/CodeAdaStockPhoto4.jpeg') }}" alt="Image 4">
-    <img src="{{ url_for('static', filename= '/CodeAdaStockPhoto5.jpeg') }}" alt="Image 5">
-    <img src="{{ url_for('static', filename= '/CodeAdaStockPhoto6.jpeg') }}" alt="Image 6">
-    <img src="{{ url_for('static', filename= '/CodeAdaStockPhoto7.avif') }}" alt="Image 7">
-    <img src="{{ url_for('static', filename= '/CodeAdaStockPhoto8.jpeg') }}" alt="Image 8">
-    <img src="{{ url_for('static', filename= '/CodeAdaStockPhoto9.jpeg') }}" alt="Image 9">
-    <img src="{{ url_for('static', filename= '/CodeAdaStockPhoto10.jpeg') }}" alt="Image 10">
+    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto1.jpeg') }}" alt="Image 1">
+    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto2.webp') }}" alt="Image 2">
+    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto3.webp') }}" alt="Image 3">
+    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto4.jpeg') }}" alt="Image 4">
+    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto5.jpeg') }}" alt="Image 5">
+    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto6.jpeg') }}" alt="Image 6">
+    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto7.avif') }}" alt="Image 7">
+    <img src="{{ url_for('static', filename='/CodeAdaStockPhoto8.jpeg') }}" alt="Image 8">
 </div>
 
 <div class="container">
@@ -177,30 +189,31 @@
 
         // Animate the intro text sliding down
         setTimeout(function() {
-            introText.style.transform = 'translateY(0)';  // Slide into frame
-            introText.style.opacity = '1';  // Make visible
-        }, 300); // 300ms delay for the text animation to start
+            introText.style.transform = 'translateY(0)';
+            introText.style.opacity = '1';
+        }, 300);
 
         // Fade out the intro overlay and show the actual content
         setTimeout(function() {
-            introOverlay.style.opacity = '0';  // Fade out the intro overlay
+            introOverlay.style.opacity = '0';
             setTimeout(function() {
-                introOverlay.style.display = 'none';  // Remove it from view after fade out
-                welcomeText.style.opacity = '1';  // Fade in the banner text
-                container.style.opacity = '1';    // Fade in the buttons
-                footer.style.opacity = '1';       // Fade in the footer
-            }, 1000); // Wait for the fade out transition to finish
-        }, 2000); // Keep the intro for 2 seconds
+                introOverlay.style.display = 'none';
+                welcomeText.style.opacity = '1';
+                container.style.opacity = '1';
+                footer.style.opacity = '1';
+            }, 1000);
+        }, 2000);
     };
 
     function goToDoctor() {
-        window.location.href = "{{ url_for('doctor') }}"; //loads flask app.route to doctor html page
+        window.location.href = "{{ url_for('doctor') }}";
     }
 
     function goToPatient() {
-        window.location.href = "{{ url_for('patient') }}"; 
+        window.location.href = "{{ url_for('patient') }}";
     }
 </script>
 
 </body>
 </html>
+Changes made:
