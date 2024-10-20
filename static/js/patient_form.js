@@ -8,63 +8,57 @@ document.getElementById('submit_button').addEventListener('click', function(even
     let reasons = [0, 0, 0, 0, 0];
     for (let i = 0; i < 5; i++){
         for (let x = 1; x < 6; x++){
-            let name = categories[i] + x;
-            console.log(name)
             const answer = document.getElementById(categories[i] + x).value;
             reasons[i] += parseInt(answer);
         }
     }
     console.log('Answers being sent:', reasons); // Log answers
 
-
-    //retreiving lgbtq preference
-    const lgbtqSelect = document.getElementById('lgbtq');
-    lgbtqSelect.addEventListener('change', function() {
-        const lgbtq = lgbtqSelect.value; // Get the selected value
-        console.log('Selected LGBTQ+ specialty:', lgtq); // Log it or use it as needed
-    });
-
-    //retreiving substance abuse
-    const substanceSelect = document.getElementById('lgbtq');
-    substanceSelect.addEventListener('change', function() {
-        const substance = substanceSelect.value; // Get the selected value
-        console.log('Selected substance abuse:', substance); // Log it or use it as needed
-    });
-
-    //retreiving gender preference
-    const genderSelect = document.getElementById('gender');
-    genderSelect.addEventListener('change', function() {
-        const gender = genderSelect.value; // Get the selected value
-        console.log('Selected gender preference:', gender); // Log it or use it as needed
-    });
-
+    
     //retreiving availability
     days_of_week = ['sun', 'mon', 'tues', 'wed', 'thurs', 'fri', 'sat']
     let availability = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for (let i = 0; i < 7; i++){
         for (let x = 0; x < 3; x++){
-            let name = days_of_week[i] + x;
-            console.log(name)
-            const answer = document.getElementById(days_pf_week[i] + x).value;
-            availability[(i*3)+x] += parseInt(answer);
-        }
+            const checkbox = document.getElementById(days_of_week[i] + x);
         
+            // Check if the checkbox exists and if it's checked
+            if (checkbox) {
+                availability[(i * 3) + x] = checkbox.checked ? 1 : 0;  // Store 1 if checked, otherwise 0
+            }
+        } 
     }
+    console.log('Selected availability array:', availability); // Log it or use it as needed
+
+
+    //retreiving lgbtq preference
+    const lgbtqSelect = document.getElementById('lgbtq');
+    const lgbtq = lgbtqSelect.value; // Get the selected value
+    console.log('Selected LGBTQ+ specialty:', lgbtq); // Log it or use it as needed
+
+    //retreiving substance abuse
+    const substanceSelect = document.getElementById('substance');
+    const substance = substanceSelect.value; // Get the selected value
+    console.log('Selected substance abuse:', substance); // Log it or use it as needed
+
+    //retreiving gender preference
+    const genderSelect = document.getElementById('gender');
+    const gender = genderSelect.value; // Get the selected value
+    console.log('Selected gender preference:', gender); // Log it or use it as needed
+
 
     //retreiving insurance
     const insuranceSelect = document.getElementById('insurance');
-    insuranceSelect.addEventListener('change', function() {
-        const insurance = insuranceSelect.value; // Get the selected value
-        console.log('Selected gender preference:', insurance); // Log it or use it as needed
-    });
+    const insurance = insuranceSelect.value; // Get the selected value
+    console.log('Selected insurance:', insurance); // Log it or use it as needed
+
 
     //retreiving price
     const priceSelect = document.getElementById('price');
-    priceSelect.addEventListener('change', function() {
         const price = priceSelect.value; // Get the selected value
-        console.log('Selected gender preference:', price); // Log it or use it as needed
-    });
+        console.log('Selected price-range:', price); // Log it or use it as needed
     
+
     fetch('/patient_form', {
         method: 'POST',  // Sending data via POST
         headers: {

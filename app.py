@@ -49,6 +49,6 @@ def patient_form():
 
     # Add user handling logic
     patient = pt.Patient(name, availability, reason, insurance, price_range, gender_preference)
-
+    
     # Return a JSON response
     return jsonify({"message": "Form submitted correctly"})
