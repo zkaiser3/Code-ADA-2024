@@ -5,7 +5,7 @@ class Patient:
     def __init__(self, name, availability, reason, insurance, price_range, gender_preference):
         self.name = name
         
-        #Availability in the patient and therapist class is a 1D array with 3 entries for every day of the week
+        #Availability in the patient and therapist class is a 1D array with 3 entries for every day of the week (0 or 1)
         # representing morning, afternoon, and evening.
         self.availability = availability
 
@@ -17,10 +17,10 @@ class Patient:
         #A string with the patient's insurance
         self.insurance = insurance
 
-        #Either a, b, c, d, or e representing the patient's desired price range
+        #Either a, b, c, d, or e representing the patient's desired price range (0,1,2,3,4)
         self.price_range = price_range
 
-        #An array with the genders that the patient prefers, can be empty
+        #An array with the genders that the patient prefers, can be empty (strings)
         self.gender_preference = gender_preference
 
 class Therapist:
