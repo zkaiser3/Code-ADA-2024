@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
+import time
 #import patient_therapist as pt
 
 
@@ -26,3 +27,17 @@ def patient():
 @app.route('/doctor_matches')
 def doctor_matches(): 
     return render_template('doctor_matches.html') #loads the signup.html website
+
+@app.route('/patient_form')
+def patient_form(): 
+    # Get the JSON data from the request
+    data = request.get_json()
+
+    # Extract username and password from the data
+    answers = data.get('answers')
+
+    # Add user handling logic
+    print(answers)
+
+    # Return a JSON response
+    return jsonify({"message": "User added successfully"})
