@@ -66,7 +66,7 @@
         .info-section {
             background-color: #9DF9EF;
             padding: 30px;
-            color: #333;
+            color: #A28089;
             text-align: center;
             border-radius: 15px;
             margin-right: 20px; 
@@ -96,11 +96,12 @@
         } */
 
         .container {
+            background-color: #9DF9EF;
+            border-radius: 15px;
             max-width: 600px;
             margin: 50px auto;
             text-align: center;
-            opacity: 0; /* Initially hidden */
-            transition: opacity 0.3s ease;
+            display: flex;
         }
 
         h2 {
@@ -130,8 +131,8 @@
             font-size: 18px;
             margin: 20px 10px;
             cursor: pointer;
-            background-color: #FFA8B6; /* Button color */
-            color: white;              /* Text color */
+            background-color: #9DF9EF; /* Button color */
+            color: #A28089;              /* Text color */
             border: none;              /* No border */
             border-radius: 25px;      /* Rounded corners */
             transition: background-color 0.3s ease; /* Transition effect */
@@ -165,7 +166,11 @@
 <div class="banner">
     <h1 id="welcomeText">Prioritizing Mental and Physical Wellness in College - One Connection at a Time!</h1>
 </div>
-
+<div class="container">
+    <h2>Get Started Today! Are you a Doctor or a Patient?</h2>
+    <button onclick="goToDoctor()">Doctor</button>
+    <button onclick="goToPatient()">Patient</button>
+</div>
 <!-- Container for the information and images -->
 <div class="content-container">
     <!-- Information about patient-doctor matching -->
@@ -185,11 +190,6 @@
     </div> -->
 </div>
 
-<div class="container">
-    <h2>Get Started Today! Are you a Doctor or a Patient?</h2>
-    <button onclick="goToDoctor()">Doctor</button>
-    <button onclick="goToPatient()">Patient</button>
-</div>
 
 <!-- Optional footer -->
 <footer id="footerContent">
