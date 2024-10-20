@@ -6,10 +6,10 @@
     <title>Patient Assessment</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
+            background-color: #EDF7F6; /* Light background color */
             color: #333;
         }
 
@@ -17,18 +17,22 @@
         .container {
             max-width: 800px;
             margin: 50px auto;
-            padding: 20px;
+            padding: 30px;
             background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            border: 2px solid #9DF9EF; /* Light border */
         }
 
         h1 {
             text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
+            color: #A28089; /* Muted text color */
+            margin-bottom: 20px;
         }
-
+        h2 {
+            color: #51e2f1; /* Bright section headers */
+            margin-top: 30px;
+        }
         /* Statement styling */
         .statement {
             margin-bottom: 20px;
@@ -43,24 +47,26 @@
         .button-group {
             display: flex;
             justify-content: space-between;
+            margin-bottom: 10px; /* Spacing for buttons */
         }
 
         button {
             padding: 10px 15px;
             font-size: 16px;
-            background-color: #a8ffab;
+            background-color: #FFA8B6; /* Light pink */
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform effect */
             margin: 2px;
             flex: 1;
             min-width: 50px;
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #FF6F8E; /* Darker pink on hover */
+            transform: scale(1.05); /* Slight scale effect */
         }
 
         /* Other preferences */
@@ -71,6 +77,10 @@
         button.submit {
             margin-top: 20px;
             width: 100%;
+            background-color: #9DF9EF; /* Light turquoise */
+        }
+        button.submit:hover {
+            background-color: #51e2f1; /* Brighter turquoise on hover */
         }
     </style>
 </head>
