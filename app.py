@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, url_for
 app = Flask(__name__)
 import time
 import patient_therapist as pt
@@ -49,6 +49,6 @@ def patient_form():
 
     # Add user handling logic
     patient = pt.Patient(name, availability, reason, insurance, price_range, gender_preference)
-    
+
     # Return a JSON response
-    return jsonify({"message": "Form submitted correctly"})
+    return jsonify({"message": "Form submitted correctly", "redirect": url_for('doctor_matches')})
